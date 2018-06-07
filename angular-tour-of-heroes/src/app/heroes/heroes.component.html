@@ -1,0 +1,14 @@
+<h2>My Heroes</h2>
+<ul class="heroes">
+	<!--For each hero in heroes array,
+	make list item of a hero.-->
+
+	<!--This list item has a click event
+	which triggers the onSelect(hero)
+	method in heroes.component.ts-->
+	<li *ngFor="let hero of heroes">
+		<a routerLink="/detail/{{hero.id}}">
+			<span class="badge">{{hero.id}}</span> {{hero.name}}
+		</a>
+	</li>
+</ul>
