@@ -13,7 +13,7 @@ export class EventpanelComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    
+
   }
 
 }
