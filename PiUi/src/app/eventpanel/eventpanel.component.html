@@ -1,0 +1,11 @@
+<div class="apanel panel panel-primary">
+  <div class="panel-heading">Events</div>
+  <div class="panel-body">
+    <ul class="events">
+      <li *ngFor="let event of events">
+        {{event.id}},{{event.name}},{{event.dateTime}}
+      </li>
+    </ul>
+  </div>
+
+</div>

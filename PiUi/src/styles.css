@@ -1,1 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
+.apanel{
+  margin: 1%;
+  width: 48%;
+  display: inline-block;
+}
