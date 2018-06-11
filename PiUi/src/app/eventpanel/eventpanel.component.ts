@@ -14,12 +14,14 @@ export class EventpanelComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+/*
     var mysql = require('mysql');
     alert("before create connect");
     var connection = mysql.createConnection({
       host:"gradtechjnjdev.cxohlepxhfmz.us-east-1.rds.amazonaws.com",
       user:"gradtechjnj_rw",
-      password:"gradt3chjnjd3v"
+      password:"gradt3chjnjd3v",
+      port: 3306
     });
 
     alert("after create connect");
@@ -33,6 +35,7 @@ export class EventpanelComponent implements OnInit {
     });
 
     connection.end();
+    */
   }
 
 }

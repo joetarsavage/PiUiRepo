@@ -20,7 +20,7 @@
     "@angular/platform-browser": "^6.0.3",
     "@angular/platform-browser-dynamic": "^6.0.3",
     "@angular/router": "^6.0.3",
-	  "ejs": "latest",
+    "ejs": "latest",
     "aws-sdk": "latest",
     "express": "latest",
     "body-parser": "latest",
