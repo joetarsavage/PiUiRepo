@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {EVENTS} from '../mock-events';
 
 @Component({
   selector: 'app-imagepanel',
@@ -7,8 +6,6 @@ import {EVENTS} from '../mock-events';
   styleUrls: ['./imagepanel.component.css']
 })
 export class ImagepanelComponent implements OnInit {
-
-  events = EVENTS;
 
   constructor() { }
 

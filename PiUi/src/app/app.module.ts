@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule }    from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { ImagepanelComponent } from './imagepanel/imagepanel.component';
@@ -14,7 +15,8 @@ import { TemppanelComponent } from './temppanel/temppanel.component';
     TemppanelComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
