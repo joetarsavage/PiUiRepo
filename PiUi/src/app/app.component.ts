@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import {Events} from 'ionic-angular';
 
 import {TempEvent} from './temp.event';
 import {MotionEvent} from './motion.event';
@@ -17,9 +16,6 @@ export class AppComponent {
   motionEvents: MotionEvent[];
 
   constructor(private eventService:EventService){}
-
-  constructor(public events: Events){}
-
 
   ngOnInit() {
     this.getEvents();
