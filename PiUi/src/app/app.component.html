@@ -4,9 +4,9 @@
 <div class="apanel panel panel-primary">
   <div class="panel-heading">Events</div>
   <div class="panel-body">
-    <ul class="events">
-      <li *ngFor="let event of events">
-        <span class="badge">{{event.temp}}</span>{{event.eventTime}}
+    <ul class="motionEvents">
+      <li *ngFor="let motionEvent of motionEvents">
+        <span class="badge">{{motionEvent.id}}</span>{{motionEvent.occurredTs}}
       </li>
     </ul>
   </div>

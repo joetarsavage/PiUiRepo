@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 
-import {Event} from './event';
+import {TempEvent} from './temp.event';
+import {MotionEvent} from './motion.event';
+
 import {EventService} from './event.service';
 
 @Component({
@@ -11,7 +13,7 @@ import {EventService} from './event.service';
 export class AppComponent {
   title = 'Pi UI';
 
-  events: Event[];
+  motionEvents: MotionEvent[];
 
   constructor(private eventService:EventService){}
 
@@ -19,6 +21,6 @@ export class AppComponent {
     this.getEvents();
   }
   getEvents(): void{
-    this.eventService.getEvents().subscribe(events => this.events = events);
+    this.eventService.getEvents().subscribe(motionEvents => this.motionEvents = motionEvents);
   }
 }
