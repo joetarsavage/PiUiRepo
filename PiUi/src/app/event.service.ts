@@ -16,6 +16,9 @@ export class EventService {
   private tempEventUrl = 'http://34.239.113.101:8080/demo/temps';
   private motionEventUrl = 'http://34.239.113.101:8080/demo/motions';
 
+  //private tempEventUrl = 'http://localhost:8080/demo/temps';
+  //private motionEventUrl = 'http://localhost:8080/demo/motions';
+
   constructor(private http: HttpClient) { }
 
   getEvents (): Observable<MotionEvent[]> {
