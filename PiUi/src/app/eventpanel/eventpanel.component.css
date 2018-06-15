@@ -2,6 +2,7 @@
   list-style: none;
 }
 li{
+  font-size: 28px;
   cursor: pointer;
   position: relative;
   left: 0;
@@ -12,4 +13,5 @@ li{
 }
 .badge{
   border-radius: 6px;
+  font-size: 30px;
 }
