@@ -2,6 +2,7 @@
 .apanel{
   margin: 1%;
   width: 48%;
+  height: 450px;
   display: inline-block;
   vertical-align: top;
 }
