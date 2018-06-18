@@ -10,13 +10,9 @@ import * as $ from 'jquery';
 })
 export class ImagepanelComponent implements OnInit {
 
-  source: string;
-
   @Input('selectedEvent') id: number;
 
   constructor() {}
-
-
 
   ngOnInit() {
     var self = this;
