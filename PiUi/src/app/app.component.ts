@@ -10,6 +10,10 @@ export class AppComponent {
 
   constructor(){}
 
+  onSelected(data: string){
+    this.title = data;
+  }
+
   ngOnInit() {
 
   }
