@@ -15,6 +15,7 @@ export class EventService {
 
   private tempEventUrl = 'http://34.239.113.101:8080/demo/temps';
   private motionEventUrl = 'http://34.239.113.101:8080/demo/motions';
+  private imageUrl = 'http://localhost:8080/demo/getImageById/';
 
   //private tempEventUrl = 'http://localhost:8080/demo/temps';
   //private motionEventUrl = 'http://localhost:8080/demo/motions';
@@ -24,5 +25,7 @@ export class EventService {
   getEvents (): Observable<MotionEvent[]> {
     return this.http.get<MotionEvent[]>(this.motionEventUrl);
   }
-
+  getImageById(id: string): Observable<string>{
+    return this.http.get<string>(this.imageUrl + id);
+  }
 }

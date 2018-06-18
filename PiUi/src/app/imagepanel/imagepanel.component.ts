@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {EventService} from '../event.service';
 
 @Component({
   selector: 'app-imagepanel',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ImagepanelComponent implements OnInit {
 
-  constructor() { }
+  img: string;
+
+  constructor() {}
 
   ngOnInit() {
+
   }
 
 }

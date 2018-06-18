@@ -15,14 +15,26 @@ import * as $ from 'jquery';
 export class EventpanelComponent implements OnInit {
 
   motionEvents: MotionEvent[];
+  img: string;
 
   constructor(private eventService:EventService){}
 
   ngOnInit() {
     this.getEvents();
+
     $(document).ready(function(){
       $("#eventsList").on("click",".eventsListItem", function(){
-        alert($(this).children().text() + " clicked");
+        //alert($(this).children().text() + " clicked");
+        $.ajax({
+          url: 'http://localhost:8080/demo/getImageById/' + $(this).children().text(),
+          success:(data)=>{
+            //alert(data);
+            this.img = data;
+            //alert(this.img);
+          }
+        });
+
+        //alert(this.eventService.getImageById("140"));
       });
     });
   }
