@@ -5,6 +5,8 @@ import {MotionEvent} from '../motion.event';
 
 import {EventService} from '../event.service';
 
+import * as $ from 'jquery';
+
 @Component({
   selector: 'app-eventpanel',
   templateUrl: './eventpanel.component.html',
@@ -18,6 +20,9 @@ export class EventpanelComponent implements OnInit {
 
   ngOnInit() {
     this.getEvents();
+    $(document).ready(function(){
+      alert("");
+    });
   }
   getEvents(): void{
     this.eventService.getEvents().subscribe(motionEvents => this.motionEvents = motionEvents);
