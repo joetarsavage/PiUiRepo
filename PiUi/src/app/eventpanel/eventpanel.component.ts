@@ -16,18 +16,18 @@ export class EventpanelComponent implements OnInit {
 
   motionEvents: MotionEvent[];
 
-  @Output() img = new EventEmitter<string>();
+  @Output() clicked = new EventEmitter<boolean>();
 
   constructor(private eventService:EventService){}
 
-  selectEvent(data: string){
-    this.img.emit(data);
+  click(bool: boolean){
+    this.clicked.emit(bool);
   }
 
   ngOnInit() {
     this.getEvents();
 
-    var self = this;
+    /*var self = this;
 
     $(document).ready(function(){
       $("#eventsList").on("click",".eventsListItem", function(){
@@ -41,7 +41,7 @@ export class EventpanelComponent implements OnInit {
           }
         });
       });
-    });
+    });*/
   }
 
   getEvents(): void{

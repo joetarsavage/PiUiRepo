@@ -1,5 +1,5 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <img src="https://www.entech.com/hs-fs/hubfs/SI%20-%20Web%20Images/Branding/Entech%20Logo.png?t=1528467454952&amp;width=157&amp;name=Entech%20Logo.png" class="hs-image-widget " style="width:157px;border-width:0px;border:0px;" width="157" alt="Entech Logo.png" title="Entech Logo.png" srcset="https://www.entech.com/hs-fs/hubfs/SI%20-%20Web%20Images/Branding/Entech%20Logo.png?t=1528467454952&amp;width=79&amp;name=Entech%20Logo.png 79w, https://www.entech.com/hs-fs/hubfs/SI%20-%20Web%20Images/Branding/Entech%20Logo.png?t=1528467454952&amp;width=157&amp;name=Entech%20Logo.png 157w, https://www.entech.com/hs-fs/hubfs/SI%20-%20Web%20Images/Branding/Entech%20Logo.png?t=1528467454952&amp;width=236&amp;name=Entech%20Logo.png 236w, https://www.entech.com/hs-fs/hubfs/SI%20-%20Web%20Images/Branding/Entech%20Logo.png?t=1528467454952&amp;width=314&amp;name=Entech%20Logo.png 314w, https://www.entech.com/hs-fs/hubfs/SI%20-%20Web%20Images/Branding/Entech%20Logo.png?t=1528467454952&amp;width=393&amp;name=Entech%20Logo.png 393w, https://www.entech.com/hs-fs/hubfs/SI%20-%20Web%20Images/Branding/Entech%20Logo.png?t=1528467454952&amp;width=471&amp;name=Entech%20Logo.png 471w" sizes="(max-width: 157px) 100vw, 157px">
 <h1>{{title}}</h1>
-<app-eventpanel (img) = "onSelected($event)"></app-eventpanel>
-<app-imagepanel></app-imagepanel>
+<app-eventpanel (clicked) = "onClicked($event)"></app-eventpanel>
+<app-imagepanel [selectedEvent] = "selectedEvent"></app-imagepanel>

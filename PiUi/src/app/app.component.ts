@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {MotionEvent} from '../motion.event';
 
 @Component({
   selector: 'app-root',
@@ -7,11 +8,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Pi UI';
-
+  selectedEvent = -1;
   constructor(){}
 
-  onSelected(data: string){
-    this.title = data;
+  onClicked(bool){
+    this.selectedEvent = bool.id;
   }
 
   ngOnInit() {
