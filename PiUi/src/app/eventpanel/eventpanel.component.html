@@ -1,8 +1,8 @@
 <div class="apanel panel panel-primary scrollbar-light-blue">
   <div class="panel-heading">Events</div>
   <div class="panel-body">
-    <ul class="motionEvents">
-      <li *ngFor="let motionEvent of motionEvents">
+    <ul id="eventsList" class="motionEvents">
+      <li (click)="click(motionEvent)" class="eventsListItem" *ngFor="let motionEvent of motionEvents">
         <span class="badge">{{motionEvent.id}}</span>{{motionEvent.occurredTs}}
       </li>
     </ul>
