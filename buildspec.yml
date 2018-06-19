@@ -1,7 +1,7 @@
 version: 0.1
 environment_variables:
     plaintext:
-        S3_BUCKET: "codepipeline-us-east-1-79862591195/"
+        S3_BUCKET: "piui.com"
         BUILD_ENV: "prod"
 phases:
     install:
