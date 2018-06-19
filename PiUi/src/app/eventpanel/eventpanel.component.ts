@@ -6,6 +6,7 @@ import {MotionEvent} from '../motion.event';
 import {EventService} from '../event.service';
 
 import * as $ from 'jquery';
+import {TempService} from '../temp.service';
 
 @Component({
   selector: 'app-eventpanel',
@@ -18,7 +19,7 @@ export class EventpanelComponent implements OnInit {
 
   @Output() clicked = new EventEmitter<boolean>();
 
-  constructor(private eventService:EventService){}
+  constructor(private eventService: EventService, private tempService: TempService){}
 
   click(bool: boolean){
     this.clicked.emit(bool);
@@ -30,6 +31,10 @@ export class EventpanelComponent implements OnInit {
 
   getEvents(): void{
     this.eventService.getEvents().subscribe(motionEvents => this.motionEvents = motionEvents);
+  }
+
+  changeTemp(date) {
+    this.tempService.changeTemp(date);
   }
 
 }

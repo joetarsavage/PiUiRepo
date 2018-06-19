@@ -1,3 +1,8 @@
-<p>
-  temppanel works!
-</p>
+<div class="apanel panel panel-primary">
+  <div class="panel-heading">Temp</div>
+  <div class="panel-body">
+    <div *ngIf="temp">
+    <h2>{{temp.temp}}</h2>
+  </div>
+</div>
+</div>
