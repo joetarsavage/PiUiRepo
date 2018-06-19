@@ -1,7 +1,7 @@
 version: 0.1
 environment_variables:
     plaintext:
-        S3_BUCKET: "piui.com"
+        S3_BUCKET: "piui.entechconsulting.com"
         BUILD_ENV: "prod"
 phases:
     install:
