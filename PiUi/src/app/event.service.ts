@@ -14,7 +14,7 @@ const httpOptions = {
 export class EventService {
 
   private tempEventUrl = 'http://34.239.113.101:8080/demo/temps';
-  private tempEventByDateUrl ='http://34.239.113.101:8080/demo/tempByDate/';
+  private tempEventByDateUrl = 'http://34.239.113.101:8080/demo/tempByDate/';
   private motionEventUrl = 'http://34.239.113.101:8080/demo/motions';
   //private imageUrl = 'http://34.239.113.101:8080/demo/getImageById/';
 
@@ -32,7 +32,13 @@ export class EventService {
   }*/
 
   getTempByDate(date: string): Observable<TempEvent> {
-  return this.http.get<TempEvent>(this.tempEventByDateUrl + date);
+    console.log('get temp http called');
 
-}
+    return this.http.get<TempEvent>(this.tempEventByDateUrl + date);
+
+  }
+
+  getAllTemps(): Observable<TempEvent[]>{
+    return this.http.get<TempEvent[]>(this.tempEventUrl);
+  }
 }

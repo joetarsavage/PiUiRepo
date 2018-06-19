@@ -1,10 +1,8 @@
 <div class="apanel panel panel-primary">
-  <div class="panel-heading">Temps</div>
+  <div class="panel-heading">Temp</div>
   <div class="panel-body">
-    <ul id="tempsList" class="TempsEvents">
-      <li *ngFor="let tempEvent of temps">
+    <div *ngIf="temp">
         <span class="badge">{{tempEvent.id}}</span>{{tempEvent.temp}} {{tempEvent.humidity}}%
-      </li>
-    </ul>
-</div>
+    </div>
+  </div>
 </div>

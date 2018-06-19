@@ -9,13 +9,15 @@ export class TempService {
 
   defaultTempId = '0';
 
-  private tempSource = new BehaviorSubject(this.defaultTempId);
+  private tempIdSource = new BehaviorSubject(this.defaultTempId);
 
-  currentTemp = this.tempSource.asObservable();
+  currentTempId = this.tempIdSource.asObservable();
 
   constructor() { }
 
-  changeTemp(tempId: string) {
-    this.tempSource.next(tempId);
+  changeTempId(tempId: string) {
+    console.log('get temp called service');
+
+    this.tempIdSource.next(tempId);
   }
 }

@@ -1,12 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-
-import {TempEvent} from '../temp.event';
 import {MotionEvent} from '../motion.event';
-
 import {EventService} from '../event.service';
 
-import * as $ from 'jquery';
-import {TempService} from '../temp.service';
 
 @Component({
   selector: 'app-eventpanel',

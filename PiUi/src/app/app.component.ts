@@ -10,18 +10,19 @@ import {TempService} from './temp.service';
 export class AppComponent {
   title = 'Pi UI';
   selectedEvent = -1;
-  constructor(private tempService: TempService){}
+  constructor(private tempService: TempService) {}
 
-  onClicked(bool){
+  onClicked(bool) {
     this.selectedEvent = bool.id;
-    this.changeTemp(bool.occurredTs.toString());
+    this.changeTempId(bool.occurredTs);
   }
 
   ngOnInit() {
 
   }
 
-  changeTemp(date) {
-    this.tempService.changeTemp(date);
+  changeTempId(date) {
+
+    this.tempService.changeTempId(date);
   }
 }
