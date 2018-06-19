@@ -19,7 +19,7 @@ export class ImagepanelComponent implements OnInit {
     $(document).ready(function(){
       $('h2').bind("DOMSubtreeModified",function(){
         $.ajax({
-          url: 'http://localhost:8080/demo/getImageById/' + self.id,
+          url: 'http://34.239.113.101:8080/demo/getImageById/' + self.id,
           success:function(data){
             $('#pic').attr("src","data:image/jpeg;base64," + data);
           }
