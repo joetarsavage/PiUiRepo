@@ -26,6 +26,10 @@ export class EventpanelComponent implements OnInit {
 
   ngOnInit() {
     this.getEvents();
+    var self = this;
+    $(document).ready(function(){
+      
+    });
   }
 
   getEvents(): void{
