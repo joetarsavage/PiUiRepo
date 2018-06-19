@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {MotionEvent} from '../motion.event';
+import {MotionEvent} from './motion.event';
 
 @Component({
   selector: 'app-root',

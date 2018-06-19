@@ -26,22 +26,6 @@ export class EventpanelComponent implements OnInit {
 
   ngOnInit() {
     this.getEvents();
-
-    /*var self = this;
-
-    $(document).ready(function(){
-      $("#eventsList").on("click",".eventsListItem", function(){
-        //alert($(this).children().text() + " clicked");
-        $.ajax({
-          url: 'http://localhost:8080/demo/getImageById/' + $(this).children().text(),
-          success:function(data){
-            alert("Data: " + data);//shows right data
-            self.selectEvent(data);
-            alert("Event Fired");//fires, so previous line didnt crash
-          }
-        });
-      });
-    });*/
   }
 
   getEvents(): void{
