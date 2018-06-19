@@ -19,10 +19,11 @@ export class EventpanelComponent implements OnInit {
 
   @Output() clicked = new EventEmitter<boolean>();
 
-  constructor(private eventService: EventService, private tempService: TempService){}
+  constructor(private eventService: EventService){}
 
   click(bool: boolean){
     this.clicked.emit(bool);
+
   }
 
   ngOnInit() {
@@ -33,8 +34,6 @@ export class EventpanelComponent implements OnInit {
     this.eventService.getEvents().subscribe(motionEvents => this.motionEvents = motionEvents);
   }
 
-  changeTemp(date) {
-    this.tempService.changeTemp(date);
-  }
+
 
 }
