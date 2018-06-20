@@ -1,9 +1,9 @@
-<div class="apanel panel panel-primary">
-  <div class="panel-heading">Temps</div>
+<div class="apanel panel panel-primary scrollbar-light-blue">
+<div class="panel-heading">Temps</div>
   <div class="panel-body">
     <ul id="tempsList" class="TempsEvents">
       <li *ngFor="let tempEvent of temps">
-        <span class="badge">{{tempEvent.id}}</span>{{tempEvent.temp}} {{tempEvent.humidity}}%
+        <span class="badge">{{tempEvent.id}}</span><h1>Temperature</h1>{{tempEvent.temp}}<h1>Humidity</h1> {{tempEvent.humidity}}%
       </li>
     </ul>
 </div>

@@ -16,8 +16,6 @@ export class TempService {
   constructor() { }
 
   changeTempId(tempId: string) {
-    console.log('get temp called service');
-
     this.tempIdSource.next(tempId);
   }
 }
