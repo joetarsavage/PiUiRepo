@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import {MotionEvent} from './motion.event';
 import {TempService} from './temp.service';
 
 @Component({
@@ -14,15 +13,15 @@ export class AppComponent {
 
   onClicked(bool) {
     this.selectedEvent = bool.id;
-    this.changeTempId(bool.occurredTs);
+    this.changeTempDate(bool.occurredTs);
   }
 
   ngOnInit() {
 
   }
 
-  changeTempId(date) {
+  changeTempDate(date) {
 
-    this.tempService.changeTempId(date);
+    this.tempService.changeTempDate(date);
   }
 }

@@ -1,21 +1,20 @@
 import { Injectable } from '@angular/core';
 import {BehaviorSubject} from 'rxjs';
-import {TempEvent} from './temp.event';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TempService {
 
-  defaultTempId = '2018-06-20 13:18:26';
+  defaultTempDate = '0';
 
-  private tempIdSource = new BehaviorSubject(this.defaultTempId);
+  private tempDateSource = new BehaviorSubject(this.defaultTempDate);
 
-  currentTempId = this.tempIdSource.asObservable();
+  currentTempDate = this.tempDateSource.asObservable();
 
   constructor() { }
 
-  changeTempId(tempDate: string) {
-    this.tempIdSource.next(tempDate);
+  changeTempDate(tempDate: string) {
+    this.tempDateSource.next(tempDate);
   }
 }
