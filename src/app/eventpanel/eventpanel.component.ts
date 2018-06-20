@@ -15,8 +15,6 @@ export class EventpanelComponent implements OnInit {
 
   motionEvents: MotionEvent[];
 
-
-
   @Output() clicked = new EventEmitter<boolean>();
 
   constructor(private eventService: EventService){}
