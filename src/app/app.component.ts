@@ -8,7 +8,7 @@ import {TempService} from './temp.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Pi UI';
+  title = 'GradTech JnJ 2018';
   selectedEvent = -1;
   constructor(private tempService: TempService) {}
 
