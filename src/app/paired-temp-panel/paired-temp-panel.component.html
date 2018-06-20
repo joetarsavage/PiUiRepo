@@ -1,0 +1,8 @@
+<div class="apanel panel panel-primary">
+  <div class="panel-heading">Temp</div>
+  <div class="panel-body">
+    <div *ngIf="temp">
+        <span class="badge">{{tempEvent.id}}</span>{{tempEvent.temp}} {{tempEvent.humidity}}%
+    </div>
+  </div>
+</div>

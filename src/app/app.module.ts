@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { ImagepanelComponent } from './imagepanel/imagepanel.component';
 import { EventpanelComponent } from './eventpanel/eventpanel.component';
 import { TemppanelComponent } from './temppanel/temppanel.component';
+import { PairedTempPanelComponent } from './paired-temp-panel/paired-temp-panel.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ImagepanelComponent,
     EventpanelComponent,
-    TemppanelComponent
+    TemppanelComponent,
+    PairedTempPanelComponent
   ],
   imports: [
     BrowserModule,
