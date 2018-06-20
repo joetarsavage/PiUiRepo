@@ -1,4 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { interval } from 'rxjs';
+
+import {TempEvent} from '../temp.event';
 import {MotionEvent} from '../motion.event';
 import {EventService} from '../event.service';
 
@@ -12,6 +15,8 @@ export class EventpanelComponent implements OnInit {
 
   motionEvents: MotionEvent[];
 
+
+
   @Output() clicked = new EventEmitter<boolean>();
 
   constructor(private eventService: EventService){}
@@ -20,9 +25,14 @@ export class EventpanelComponent implements OnInit {
     this.clicked.emit(bool);
 
   }
+  onRefresh(){
+    this.getEvents();
+  }
 
   ngOnInit() {
+    const refreshTimer = interval(2000);
     this.getEvents();
+    refreshTimer.subscribe(n => this.onRefresh());
   }
 
   getEvents(): void{
