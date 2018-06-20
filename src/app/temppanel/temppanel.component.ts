@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {EventService} from '../event.service';
+import {TempEvent} from '../temp.event';
 
 @Component({
   selector: 'app-temppanel',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TemppanelComponent implements OnInit {
 
-  constructor() { }
+  temps: TempEvent[];
+  constructor(private eventService: EventService) { }
 
   ngOnInit() {
+    this.getAllTemps();
   }
 
+
+  getAllTemps(): void{
+    this.eventService.getAllTemps().subscribe(temp => this.temps = temp , err => console.log('Error happened in sub'));  }
 }

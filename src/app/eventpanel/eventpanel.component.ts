@@ -3,10 +3,8 @@ import { interval } from 'rxjs';
 
 import {TempEvent} from '../temp.event';
 import {MotionEvent} from '../motion.event';
-
 import {EventService} from '../event.service';
 
-import * as $ from 'jquery';
 
 @Component({
   selector: 'app-eventpanel',
@@ -21,10 +19,11 @@ export class EventpanelComponent implements OnInit {
 
   @Output() clicked = new EventEmitter<boolean>();
 
-  constructor(private eventService:EventService){}
+  constructor(private eventService: EventService){}
 
   click(bool: boolean){
     this.clicked.emit(bool);
+
   }
   onRefresh(){
     this.getEvents();
@@ -39,5 +38,7 @@ export class EventpanelComponent implements OnInit {
   getEvents(): void{
     this.eventService.getEvents().subscribe(motionEvents => this.motionEvents = motionEvents);
   }
+
+
 
 }
