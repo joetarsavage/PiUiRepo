@@ -16,11 +16,12 @@ export class PairedTempPanelComponent implements OnInit {
   constructor(private eventService: EventService , private tempService: TempService) { }
 
   ngOnInit() {
-    this.tempService.currentTempId.subscribe(tempDate =>  this.getTemp(tempDate));
+    this.tempService.currentTempDate.subscribe(tempDate =>  this.getTemp(tempDate));
   }
 
   getTemp(date: string): void {
-    this.eventService.getTempByDate(date).subscribe(temp => this.temp = temp , err => console.log('Error happened in sub'));
+    if(date!='0')
+      this.eventService.getTempByDate(date).subscribe(temp => this.temp = temp , err => console.log('Error happened in sub'));
 
   }
 
