@@ -7,7 +7,7 @@ import {TempEvent} from './temp.event';
 })
 export class TempService {
 
-  defaultTempId = '0';
+  defaultTempId = '2018-06-20 13:18:26';
 
   private tempIdSource = new BehaviorSubject(this.defaultTempId);
 
@@ -15,7 +15,7 @@ export class TempService {
 
   constructor() { }
 
-  changeTempId(tempId: string) {
-    this.tempIdSource.next(tempId);
+  changeTempId(tempDate: string) {
+    this.tempIdSource.next(tempDate);
   }
 }

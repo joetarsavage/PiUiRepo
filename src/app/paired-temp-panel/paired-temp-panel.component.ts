@@ -21,6 +21,7 @@ export class PairedTempPanelComponent implements OnInit {
 
   getTemp(date: string): void {
     this.eventService.getTempByDate(date).subscribe(temp => this.temp = temp , err => console.log('Error happened in sub'));
+
   }
 
 
