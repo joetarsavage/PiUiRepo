@@ -1,4 +1,7 @@
-.TempszEvents{
+html{
+  background:none;
+}
+.TempsEvents{
   list-style: none;
 }
 .apanel{
@@ -7,16 +10,18 @@
 .panel-heading{
   border-top-right-radius: 0px;
 }
-
+ul{
+  padding: 10px;
+}
 li{
   font-size: 24px;
   cursor: pointer;
-  position: relative;
-  left: 0;
+  text-align: left;
   background-color: #EEE;
   margin: .5em;
   padding: .1em 0;
   border-radius: 4px;
+  list-style-type: none;
 }
 li:hover {
   color: #607D8B;
