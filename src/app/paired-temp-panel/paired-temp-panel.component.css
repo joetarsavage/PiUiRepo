@@ -3,13 +3,13 @@
     grid-auto-rows: 2fr;
 }
 .temp{
-    font-size: 100px; 
+    font-size: 5em; 
 }
 .tempLbl{
     text-decoration: underline;
 }
 .humidity{
-    font-size: 100px;
+    font-size: 5em;
 }
 .humidity h3{
     text-decoration: underline;

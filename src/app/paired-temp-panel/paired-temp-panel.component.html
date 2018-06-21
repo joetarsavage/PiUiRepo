@@ -3,8 +3,8 @@
   <div class="panel-heading">Temperature</div>
   <div class="panel-body">
     <div *ngIf="temp">
-      <div class="temp"><h3 class="tempLbl">Temperature</h3> {{temp.temp ? (temp.temp | number: "1.2-2") : "No Temperature Data"}} &#x2109;</div>
-      <div class="humidity"><h3>Humidity</h3> {{temp.humdity ? (temp.humidity | number: "1.2-2") : "No Humidity Data"}} &#37; </div>
+      <div class="temp"><h3 class="tempLbl">Temperature</h3> {{temp.temp ? (temp.temp | number: "1.2-2")+ "&#x2109;" : "No Temperature Data"}} </div>
+      <div class="humidity"><h3>Humidity</h3> {{temp.humidity ? (temp.humidity | number: "1.2-2") + "&#37;": "No Humidity Data"}}  </div>
     </div>
   </div>
 </div>
