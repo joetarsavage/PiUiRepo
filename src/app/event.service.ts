@@ -16,11 +16,11 @@ export class EventService {
   private tempEventUrl = 'http://34.239.113.101:8080/demo/temps';
   private tempEventByDateUrl = 'http://34.239.113.101:8080/demo/getTempByDate/';
   private motionEventUrl = 'http://34.239.113.101:8080/demo/motions';
-  //private imageUrl = 'http://34.239.113.101:8080/demo/getImageById/';
+  // private imageUrl = 'http://34.239.113.101:8080/demo/getImageById/';
 
-  //private tempEventUrl = 'http://localhost:8080/demo/temps';
-  //private motionEventUrl = 'http://localhost:8080/demo/motions';
-  //private imageUrl = 'http://localhost:8080/demo/getImageById/';
+  // private tempEventUrl = 'http://localhost:8080/demo/temps';
+  // private motionEventUrl = 'http://localhost:8080/demo/motions';
+  // private imageUrl = 'http://localhost:8080/demo/getImageById/';
 
   constructor(private http: HttpClient) { }
 
@@ -35,7 +35,7 @@ export class EventService {
     return this.http.get<TempEvent>(this.tempEventByDateUrl + date);
   }
 
-  getAllTemps(): Observable<TempEvent[]>{
+  getAllTemps(): Observable<TempEvent[]> {
     return this.http.get<TempEvent[]>(this.tempEventUrl);
   }
 }

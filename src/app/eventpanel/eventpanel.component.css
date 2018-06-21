@@ -7,11 +7,12 @@
 .panel-heading{
   border-top-right-radius: 0px;
 }
+ul{
+  padding: 10px;
+}
 li{
   font-size: 24px;
   cursor: pointer;
-  position: relative;
-  left: 0;
   background-color: #EEE;
   margin: .5em;
   padding: .1em 0;

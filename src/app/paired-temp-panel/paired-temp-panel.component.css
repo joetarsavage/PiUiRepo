@@ -1,0 +1,16 @@
+.panel-body{
+    text-align: center;
+    grid-auto-rows: 2fr;
+}
+.temp{
+    font-size: 100px; 
+}
+.tempLbl{
+    text-decoration: underline;
+}
+.humidity{
+    font-size: 100px;
+}
+.humidity h3{
+    text-decoration: underline;
+}

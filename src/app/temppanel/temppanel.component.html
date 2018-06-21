@@ -3,7 +3,10 @@
   <div class="panel-body">
     <ul id="tempsList" class="TempsEvents">
       <li *ngFor="let tempEvent of temps">
-        <span class="badge">{{tempEvent.id}}</span><h1>Temperature</h1>{{tempEvent.temp}}<h1>Humidity</h1> {{tempEvent.humidity}}%
+        <span class="badge">{{tempEvent.id}}</span>
+        <h6>Time {{tempEvent.occurredTs}}</h6>
+        <h3>Temperature</h3>{{tempEvent.temp}} &#x2109;
+        <h3>Humidity</h3> {{tempEvent.humidity}} &#37;
       </li>
     </ul>
 </div>
