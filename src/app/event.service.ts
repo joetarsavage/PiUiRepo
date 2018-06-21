@@ -32,10 +32,7 @@ export class EventService {
   }*/
 
   getTempByDate(date: string): Observable<TempEvent> {
-    console.log('get temp http called');
-
     return this.http.get<TempEvent>(this.tempEventByDateUrl + date);
-
   }
 
   getAllTemps(): Observable<TempEvent[]>{
