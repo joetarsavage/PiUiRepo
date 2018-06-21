@@ -46,6 +46,7 @@ export class EventpanelComponent implements OnInit {
     refreshTimer.subscribe(n => this.getEvents());
 
     $(document).ready(function(){
+      localStorage.removeItem("liSelected");
       $(document).on("click",".eventsListItem",function(){
         $('li').removeClass("selected");
         $(this).addClass("selected");
