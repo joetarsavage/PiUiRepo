@@ -5,7 +5,7 @@
 .temp{
     font-size: 100px; 
 }
-.temp h3{
+.tempLbl{
     text-decoration: underline;
 }
 .humidity{
@@ -13,7 +13,4 @@
 }
 .humidity h3{
     text-decoration: underline;
-}
-.ts{
-    font-size: 5px;
 }
