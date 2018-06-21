@@ -3,7 +3,7 @@
   <div class="panel-body">
     <ul id="eventsList" class="motionEvents">
       <li (click)="click(motionEvent)" class="eventsListItem" *ngFor="let motionEvent of motionEvents">
-        <span class="badge">{{motionEvent.id}}</span>{{motionEvent.occurredTs}}
+        <span class="badge">{{motionEvent.id}}</span>{{motionEvent.occurredTs | date: "h:mm:ss a | MMM d, y"}}
       </li>
     </ul>
   </div>
