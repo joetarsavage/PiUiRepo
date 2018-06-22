@@ -49,3 +49,11 @@ li:hover {
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
   background-color: #428BCA;
  }
+ @media screen and (max-width: 600px){
+   li{
+     font-size: 20px;
+   }
+   .badge{
+     font-size: 22px;
+   }
+ }
