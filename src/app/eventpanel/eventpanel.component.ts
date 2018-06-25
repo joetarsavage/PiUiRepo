@@ -19,43 +19,43 @@ export class EventpanelComponent implements OnInit {
 
   @Output() clicked = new EventEmitter<boolean>();
 
-  constructor(private eventService: EventService){}
+  constructor(private eventService: EventService) {}
 
-  click(bool: boolean){
+  click(bool: boolean) {
     this.clicked.emit(bool);
   }
-  onRefreshed(){
-    $(document).ready(function(){
-      var liSelected = localStorage.getItem("liSelected");
+  onRefreshed() {
+    $(document).ready(function() {
+      const tdSelected = localStorage.getItem('tdSelected');
 
-      if(liSelected != null){
-        $("li").each(function(){
-          if($(this).text() == liSelected){
-            $(this).addClass("selected");
+      if (tdSelected != null) {
+        $('td').each(function() {
+          if ($(this).text() === tdSelected) {
+            $(this).addClass('selected');
           }
         });
       }
     });
   }
-  //set global variable and reset css on refresh based on id
+  // set global variable and reset css on refresh based on id
   ngOnInit() {
-    var self = this;
+    const self = this;
 
     const refreshTimer = interval(2000);
     this.getEvents();
     refreshTimer.subscribe(n => this.getEvents());
 
-    $(document).ready(function(){
-      localStorage.removeItem("liSelected");
-      $(document).on("click",".eventsListItem",function(){
-        $('li').removeClass("selected");
-        $(this).addClass("selected");
-        localStorage.setItem("liSelected",$(this).text());
+    $(document).ready(function() {
+      localStorage.removeItem('tdSelected');
+      $(document).on('click', '.data', function() {
+        $('td').removeClass('selected');
+        $(this).addClass('selected');
+        localStorage.setItem('tdSelected', $(this).text());
       });
     });
   }
 
-  getEvents(): void{
+  getEvents(): void {
     this.eventService.getEvents().subscribe(
       motionEvents => this.motionEvents = motionEvents,
       err => this.onRefreshed(),
