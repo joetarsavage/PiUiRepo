@@ -58,15 +58,20 @@ export class TemppanelComponent implements OnInit, AfterViewInit{
     this.temperatureData = [{data: this.allTempData.slice(), label: 'Temperature °F'}];
   }
   displayAll() {
-    this.chart.labels = this.allDates.slice(0);
+    this.chart.labels = this.allDates.slice();
 
     this.temperatureData = [{data: this.allTempData.slice(), label: 'Temperature °F'}];
+    this.chart.ngOnChanges({});
+
   }
   displayPastWeek() {
-    this.temperatureData = [{data: this.allTempData, label: 'Temperature °F'}];
+    this.chart.labels = this.allDates.slice(-90);
+    this.temperatureData = [{data: this.allTempData.slice(-90), label: 'Temperature °F'}];
+    this.chart.ngOnChanges({});
   }
   displayPastDay() {
-    this.chart.labels = this.allDates.slice(0, 10);
-    this.temperatureData = [{data: this.allTempData.slice(0, 10), label: 'Temperature °F'}];
+    this.chart.labels = this.allDates.slice(-30);
+    this.temperatureData = [{data: this.allTempData.slice(-30), label: 'Temperature °F'}];
+    this.chart.ngOnChanges({});
   }
 }
