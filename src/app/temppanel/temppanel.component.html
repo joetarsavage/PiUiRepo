@@ -1,13 +1,17 @@
 <div class="apanel panel panel-primary scrollbar-light-blue">
-<div class="panel-heading">Temps</div>
-  <div class="panel-body">
-    <ul id="tempsList" class="TempsEvents">
-      <li *ngFor="let tempEvent of temps">
-        <span class="badge">{{tempEvent.id}}</span>
-        <h6>Time {{tempEvent.occurredTs}}</h6>
-        <h3>Temperature</h3>{{tempEvent.temp}} &#x2109;
-        <h3>Humidity</h3> {{tempEvent.humidity}} &#37;
-      </li>
-    </ul>
-</div>
+  <div class="panel-heading">Temps</div>
+    <div class="panel-body" *ngIf="temperatureData">
+      <button (click)="displayAll()">All Temperatures</button>
+      <button (click)="displayPastWeek()">Past Week</button>
+      <button (click)="displayPastDay()">Past Day</button>
+      <script src="node_modules/chart.js/src/chart.js"></script>
+
+      <canvas baseChart width="300" height="300"
+              [datasets]="temperatureData"
+              [labels]="xlabels"
+              [colors]="chartColor"
+              [chartType]="chartType"
+              [options]="chartOptions"></canvas>
+
+  </div>
 </div>
