@@ -14,7 +14,7 @@ export class TemppanelComponent implements OnInit, AfterViewInit{
   @ViewChild(BaseChartDirective) chart: BaseChartDirective;
 
   temps: TempEvent[];
-  i= 0;
+  i = 0;
   currentDate: Date;
   temperatureData;
   allTempData: number[];
@@ -41,8 +41,30 @@ export class TemppanelComponent implements OnInit, AfterViewInit{
     // const refreshTimer = interval(10000);
     this.getAllTemps();
     // refreshTimer.subscribe(n => this.getAllTemps());
+<<<<<<< Updated upstream
+=======
   }
 
+  ngAfterViewInit() {
+  }
+
+  getAllTemps(): void {
+    this.eventService.getAllTemps().subscribe(temp => this.tempDataUpdated(temp), err => console.log('Error happened in sub'));
+  }
+  tempDataUpdated(temp: TempEvent[]): void {
+    this.temps = temp;
+    this.updateTempGraphData(temp);
+>>>>>>> Stashed changes
+  }
+  updateTempGraphData(temp: TempEvent[]): void {
+    this.allTempData = temp.map(dat =>  dat.temp );
+    this.allDates = temp.map(dat => dat.occurredTs);
+    this.xlabels = this.allDates.slice();
+    this.temperatureData = [{data: this.allTempData.slice(), label: 'Temperature °F'}];
+    this.currentDate = new Date();
+    console.log(this.currentDate);
+
+<<<<<<< Updated upstream
   ngAfterViewInit() {
   }
 
@@ -60,6 +82,11 @@ export class TemppanelComponent implements OnInit, AfterViewInit{
     this.temperatureData = [{data: this.allTempData.slice(), label: 'Temperature °F'}];
     this.currentDate = new Date();
     this.numOneDayBack = this.numIterationsBack(new Date(new Date().setDate(new Date().getDate()-1)));
+=======
+    this.numOneDayBack = this.numIterationsBack(new Date(new Date().setDate(new Date().getDate()-1)));
+    console.log(new Date(new Date().setDate(new Date().getDate()-1)));
+
+>>>>>>> Stashed changes
     this.numOneWeekBack = this.numIterationsBack(new Date(new Date().setDate(new Date().getDate()-5)));
   }
   displayAll() {
@@ -80,9 +107,17 @@ export class TemppanelComponent implements OnInit, AfterViewInit{
     this.chart.ngOnChanges({});
   }
   numIterationsBack(date: Date): number {
+<<<<<<< Updated upstream
     for ( this.i = this.allDates.length - 1;new Date(this.allDates[this.i]).getDate() >= date.getDate(); this.i--){
     }
     if(this.i <0) this.i=0;
     return this.i;
+=======
+    for ( this.i = this.allDates.length-1;new Date(this.allDates[this.i]).getDate() > date.getDate(); this.i--){
+      console.log("temp Date: "+new Date(this.allDates[this.i]).getDate()+"  cutoff: "+date.getDate());
+    }
+    console.log("i is this: "+this.i);
+    return -this.i;
+>>>>>>> Stashed changes
   }
 }
