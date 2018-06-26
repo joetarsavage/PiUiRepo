@@ -59,11 +59,7 @@ export class TemppanelComponent implements OnInit, AfterViewInit{
     this.xlabels = this.allDates.slice();
     this.temperatureData = [{data: this.allTempData.slice(), label: 'Temperature °F'}];
     this.currentDate = new Date();
-    console.log(this.currentDate);
-
     this.numOneDayBack = this.numIterationsBack(new Date(new Date().setDate(new Date().getDate()-1)));
-    console.log(new Date(new Date().setDate(new Date().getDate()-1)));
-
     this.numOneWeekBack = this.numIterationsBack(new Date(new Date().setDate(new Date().getDate()-5)));
   }
   displayAll() {
@@ -84,10 +80,9 @@ export class TemppanelComponent implements OnInit, AfterViewInit{
     this.chart.ngOnChanges({});
   }
   numIterationsBack(date: Date): number {
-    for ( this.i = this.allDates.length-1;new Date(this.allDates[this.i]).getDate() > date.getDate(); this.i--){
-      console.log("temp Date: "+new Date(this.allDates[this.i]).getDate()+"  cutoff: "+date.getDate());
+    for ( this.i = this.allDates.length - 1;new Date(this.allDates[this.i]).getDate() >= date.getDate(); this.i--){
     }
-    console.log("i is this: "+this.i);
-    return -this.i;
+    if(this.i <0) this.i=0;
+    return this.i;
   }
 }
