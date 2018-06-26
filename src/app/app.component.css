@@ -7,8 +7,20 @@ body{
   padding: 10px;
   float: right;
 }
+.topnav{
+  text-align: left;
+  color: #337ab7;
+  font-size: 1em;
+  padding-left: 1.5em;
+}
+a{
+  padding: 1em;
+}
+a:hover{
+  text-decoration: underline;
+}
 h1{
-  font-size: 5em;
+  font-size: 3em;
   text-align: left;
   color: #337ab7;
 }

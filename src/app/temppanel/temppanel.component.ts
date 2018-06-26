@@ -10,11 +10,11 @@ import {BaseChartDirective} from 'ng2-charts';
   templateUrl: './temppanel.component.html',
   styleUrls: ['./temppanel.component.css'],
 })
-export class TemppanelComponent implements OnInit, AfterViewInit{
+export class TemppanelComponent implements OnInit, AfterViewInit {
   @ViewChild(BaseChartDirective) chart: BaseChartDirective;
 
   temps: TempEvent[];
-  i= 0;
+  i = 0;
   currentDate: Date;
   temperatureData;
   allTempData: number[];
@@ -59,8 +59,8 @@ export class TemppanelComponent implements OnInit, AfterViewInit{
     this.xlabels = this.allDates.slice();
     this.temperatureData = [{data: this.allTempData.slice(), label: 'Temperature °F'}];
     this.currentDate = new Date();
-    this.numOneDayBack = this.numIterationsBack(new Date(new Date().setDate(new Date().getDate()-1)));
-    this.numOneWeekBack = this.numIterationsBack(new Date(new Date().setDate(new Date().getDate()-5)));
+    this.numOneDayBack = this.numIterationsBack(new Date(new Date().setDate(new Date().getDate() - 1)));
+    this.numOneWeekBack = this.numIterationsBack(new Date(new Date().setDate(new Date().getDate() - 5)));
   }
   displayAll() {
     this.chart.labels = this.allDates.slice();
@@ -80,9 +80,11 @@ export class TemppanelComponent implements OnInit, AfterViewInit{
     this.chart.ngOnChanges({});
   }
   numIterationsBack(date: Date): number {
-    for ( this.i = this.allDates.length - 1; new Date(this.allDates[this.i]).getDate() >= date.getDate(); this.i--){
+    for ( this.i = this.allDates.length - 1; new Date(this.allDates[this.i]).getDate() >= date.getDate(); this.i--) {
     }
-      if (this.i <0) this.i=0; 
+      if (this.i < 0) {
+ this.i = 0 ;
+      }
       return this.i;
   }
 }
