@@ -1,10 +1,18 @@
 <div class="apanel panel panel-primary scrollbar-light-blue">
   <div class="panel-heading">Events</div>
-  <div class="panel-body">
-    <ul id="eventsList" class="motionEvents">
-      <li (click)="click(motionEvent)" class="eventsListItem" *ngFor="let motionEvent of motionEvents">
-        <span class="badge">{{motionEvent.id}}</span>{{motionEvent.occurredTs | date: "h:mm:ss a | MMM d, y"}}
-      </li>
-    </ul>
-  </div>
+    <div class="panel-body">
+      <table style="width:100%">
+        <tbody>
+          <tr (click)="click(motionEvent)" class="data" *ngFor="let motionEvent of motionEvents | paginate: { itemsPerPage:9, currentPage: p}">
+            <td>{{motionEvent.occurredTs | date: "MMM d, y &nbsp; h:mm:ss a"}}</td>
+          </tr>
+        </tbody>
+      </table>
+     
+    </div>
+   <pagination-controls class="pageControl"
+      previousLabel = "Previous"
+      nextLabel = "Next"
+        (pageChange)="p = $event">
+      </pagination-controls>
 </div>
