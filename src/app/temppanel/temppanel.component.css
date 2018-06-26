@@ -13,6 +13,14 @@ html{
 ul{
   padding: 10px;
 }
+.panel-body canvas{
+  align-items: center;
+}
+button{
+  background-color: #428BCA;
+  border-radius: 4px;
+  color: white;
+}
 li{
   font-size: 24px;
   cursor: pointer;
@@ -23,6 +31,10 @@ li{
   border-radius: 4px;
   list-style-type: none;
 }
+/* canvas{
+  border:5px;
+  border-style: dashed;
+} */
 li:hover {
   color: #607D8B;
   background-color: #DDD;
