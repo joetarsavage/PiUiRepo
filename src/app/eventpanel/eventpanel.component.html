@@ -1,4 +1,4 @@
-<div class="apanel panel panel-primary scrollbar-light-blue">
+<div class="apanel panel panel-primary">
   <div class="panel-heading">Events</div>
     <div class="panel-body">
       <table style="width:100%">
@@ -8,11 +8,12 @@
           </tr>
         </tbody>
       </table>
-     
+
     </div>
    <pagination-controls class="pageControl"
-      previousLabel = "Previous"
+      previousLabel = "Prev"
       nextLabel = "Next"
-        (pageChange)="p = $event">
-      </pagination-controls>
+      (pageChange)="p = $event"
+      maxSize = "0">
+    </pagination-controls>
 </div>
