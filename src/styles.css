@@ -8,7 +8,9 @@
 }
 @media screen and (max-width: 600px){
   .apanel{
+    margin: 5%;
     display: block;
     height: 350px;
+    width: 90%;
   }
 }
