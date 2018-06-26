@@ -30,6 +30,7 @@
     "jquery": "^3.3.1",
     "mysql": "latest",
     "ng2-charts": "^1.6.0",
+    "ngx-pagination": "^3.1.1",
     "rxjs": "^6.2.1",
     "zone.js": "^0.8.26"
   },
