@@ -1,19 +1,22 @@
 body{
   margin: 0;
-  padding: 10px;
+  text-align: center;
+  font-size: 2em;
 }
 .logo{
   padding: 10px;
   float: right;
 }
 h1{
-  font-size: 50px;
+  font-size: 5em;
   text-align: left;
   color: #337ab7;
 }
 footer{
-  text-align: center;
+  font-size: 1em;
+  text-align: right;
   color: aqua;
+  padding-right: 5px;
 }
 
 html{
