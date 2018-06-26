@@ -13,9 +13,9 @@ const httpOptions = {
 @Injectable({providedIn: 'root'})
 export class EventService {
 
-  private tempEventUrl = 'http://184.72.116.35:8080/demo/temps';
-  private tempEventByDateUrl = 'http://184.72.116.35:8080/demo/getTempByDate/';
-  private motionEventUrl = 'http://184.72.116.35:8080/demo/motions';
+  private tempEventUrl = 'http://18.204.21.212:8080/demo/temps';
+  private tempEventByDateUrl = 'http://18.204.21.212:8080/demo/getTempByDate/';
+  private motionEventUrl = 'http://18.204.21.212:8080/demo/motions';
 
   // private tempEventUrl = 'http://localhost:8080/demo/temps';
   // private motionEventUrl = 'http://localhost:8080/demo/motions';
