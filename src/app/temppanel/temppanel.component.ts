@@ -74,22 +74,25 @@ export class TemppanelComponent implements OnInit, AfterViewInit {
 
   }
   displayPastWeek() {
-    this.chart.labels = this.allDates.slice(-this.numOneWeekBack);
-    this.temperatureData = [{data: this.allTempData.slice(-this.numOneWeekBack), label: 'Temperature °F'},
-      {data: this.allHumidityData.slice(-this.numOneWeekBack), label: 'Hunmidity %'}];
+    this.chart.labels = this.allDates.slice(this.numOneWeekBack,this.allDates.length-this.numOneWeekBack);
+    this.temperatureData = [{data: this.allTempData.slice(this.numOneWeekBack,this.allTempData.length-this.numOneWeekBack), label: 'Temperature °F'},
+      {data: this.allHumidityData.slice(this.numOneWeekBack,this.allHumidityData.length-this.numOneWeekBack), label: 'Hunmidity %'}];
     this.chart.ngOnChanges({});
   }
   displayPastDay() {
-    this.chart.labels = this.allDates.slice(-this.numOneDayBack);
-    this.temperatureData = [{data: this.allTempData.slice(-this.numOneDayBack), label: 'Temperature °F'},
-      {data: this.allHumidityData.slice(-this.numOneDayBack), label: 'Hunmidity %'}];
+    this.chart.labels = this.allDates.slice(this.numOneDayBack,this.allDates.length-this.numOneDayBack);
+    this.temperatureData = [{data: this.allTempData.slice(this.numOneDayBack,this.allTempData.length-this.numOneDayBack), label: 'Temperature °F'},
+      {data: this.allHumidityData.slice(this.numOneDayBack,this.allHumidityData.length-this.numOneDayBack), label: 'Hunmidity %'}];
     this.chart.ngOnChanges({});
   }
   numIterationsBack(date: Date): number {
-    for ( this.i = this.allDates.length - 1; new Date(this.allDates[this.i]).getDate() >= date.getDate(); this.i--) {
+    for ( this.i = this.allDates.length - 1; this.i >0&&new Date(this.allDates[this.i]).getDate() >= date.getDate(); this.i--) {
+      console.log("temp date is: "+new Date(this.allDates[this.i]).getDate()+"Previous Date: "+date.getDate());
     }
-      if (this.i < 0) {
- this.i = 0 ;
+    console.log("index is"+this.i);
+
+    if (this.i < 0) {
+        this.i = 0 ;
       }
       return this.i;
   }
