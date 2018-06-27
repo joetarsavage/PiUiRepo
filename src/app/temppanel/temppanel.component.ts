@@ -1,7 +1,6 @@
 import {Component, OnInit, AfterViewInit, ViewChild} from '@angular/core';
 import {EventService} from '../event.service';
 import {TempEvent} from '../temp.event';
-import {interval} from 'rxjs';
 import {BaseChartDirective} from 'ng2-charts';
 
 
@@ -22,8 +21,6 @@ export class TemppanelComponent implements OnInit, AfterViewInit {
   allDates: string[];
   numOneDayBack: number;
   numOneWeekBack: number;
-  dateOneWeekBack: Date;
-  dateOneDayBack: Date;
   chartType = 'line';
   xlabels;
  // chartOptions = {'showXLabels': 5};
@@ -48,7 +45,7 @@ export class TemppanelComponent implements OnInit, AfterViewInit {
   }
 
   getAllTemps(): void {
-    this.eventService.getAllTemps().subscribe(temp => this.tempDataUpdated(temp), err => console.log('Error happened in sub'));
+    this.eventService.getAllTemps().subscribe(temp => this.tempDataUpdated(temp));
   }
   tempDataUpdated(temp: TempEvent[]): void {
     this.temps = temp;
@@ -74,22 +71,24 @@ export class TemppanelComponent implements OnInit, AfterViewInit {
 
   }
   displayPastWeek() {
-    this.chart.labels = this.allDates.slice(this.numOneWeekBack,this.allDates.length-this.numOneWeekBack);
-    this.temperatureData = [{data: this.allTempData.slice(this.numOneWeekBack,this.allTempData.length-this.numOneWeekBack), label: 'Temperature °F'},
-      {data: this.allHumidityData.slice(this.numOneWeekBack,this.allHumidityData.length-this.numOneWeekBack), label: 'Hunmidity %'}];
+    this.chart.labels = this.allDates.slice(this.numOneWeekBack, this.allDates.length - this.numOneWeekBack);
+    this.temperatureData = [{data: this.allTempData.slice(this.numOneWeekBack,
+        this.allTempData.length - this.numOneWeekBack), label: 'Temperature °F'},
+      {data: this.allHumidityData.slice(this.numOneWeekBack, this.allHumidityData.length - this.numOneWeekBack), label: 'Hunmidity %'}];
     this.chart.ngOnChanges({});
   }
   displayPastDay() {
-    this.chart.labels = this.allDates.slice(this.numOneDayBack,this.allDates.length-this.numOneDayBack);
-    this.temperatureData = [{data: this.allTempData.slice(this.numOneDayBack,this.allTempData.length-this.numOneDayBack), label: 'Temperature °F'},
-      {data: this.allHumidityData.slice(this.numOneDayBack,this.allHumidityData.length-this.numOneDayBack), label: 'Hunmidity %'}];
+    this.chart.labels = this.allDates.slice(this.numOneDayBack, this.allDates.length - this.numOneDayBack);
+    this.temperatureData = [{data: this.allTempData.slice(this.numOneDayBack,
+        this.allTempData.length - this.numOneDayBack), label: 'Temperature °F'},
+      {data: this.allHumidityData.slice(this.numOneDayBack, this.allHumidityData.length - this.numOneDayBack), label: 'Hunmidity %'}];
     this.chart.ngOnChanges({});
   }
   numIterationsBack(date: Date): number {
-    for ( this.i = this.allDates.length - 1; this.i >0&&new Date(this.allDates[this.i]).getDate() >= date.getDate(); this.i--) {
-      console.log("temp date is: "+new Date(this.allDates[this.i]).getDate()+"Previous Date: "+date.getDate());
+    for ( this.i = this.allDates.length - 1; this.i > 0 && new Date(this.allDates[this.i]).getDate() >= date.getDate(); this.i--) {
+      console.log('temp date is: ' + new Date(this.allDates[this.i]).getDate() + 'Previous Date: ' + date.getDate());
     }
-    console.log("index is"+this.i);
+    console.log('index is' + this.i);
 
     if (this.i < 0) {
         this.i = 0 ;
