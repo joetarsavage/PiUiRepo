@@ -4,6 +4,15 @@
 .panel-heading{
   border-top-right-radius: 0px;
 }
+.panel{
+  position: relative;
+}
+.pageControl{
+  position: absolute;
+  bottom: 0;
+  left:0;
+  right: 0;
+}
 td{
   font-size: 24px;
   cursor: pointer;
@@ -23,7 +32,7 @@ td:hover {
   background-color: #DDD;
   left: .1em;
 }
-.badge{
+.badge{ 
   border-radius: 6px;
   font-size: 26px;
   padding-top: 1%;
