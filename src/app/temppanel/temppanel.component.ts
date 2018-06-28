@@ -56,9 +56,6 @@ export class TemppanelComponent implements OnInit, AfterViewInit {
     this.allTempData = temp.map(dat =>  dat.temp );
     this.allHumidityData = temp.map(dat => dat.humidity);
     this.allDates = temp.map(dat => dat.occurredTs);
-    // .map( date => new Date(date).getDate().toString())
-
-
     this.currentDate = new Date();
     this.numOneDayBack = this.numIterationsBack(new Date(new Date().setDate(new Date().getDate() - 1)));
     this.numOneWeekBack = this.numIterationsBack(new Date(new Date().setDate(new Date().getDate() - 5)));
@@ -94,7 +91,7 @@ export class TemppanelComponent implements OnInit, AfterViewInit {
     for ( this.i = this.allDates.length - 1; this.i > 0 && new Date(this.allDates[this.i]).getDate() >= date.getDate(); this.i--) {
       console.log('temp date is: ' + new Date(this.allDates[this.i]).getDate() + 'Previous Date: ' + date.getDate());
     }
-    console.log('index is' + this.i);
+
 
     if (this.i < 0) {
         this.i = 0 ;
