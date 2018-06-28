@@ -13,10 +13,10 @@
               [chartType]="chartType"
               [options]="{showXLabels: 10}"></canvas>
 
+
       <div id="tAndH" *ngIf="temp">
         <div class="temp"><h3 class="tempLbl">Temperature</h3> {{temp.temp ? (temp.temp | number: "1.2-2")+ "&#x2109;" : "No Temperature Data"}} </div>
         <div class="humidity"><h3>Humidity</h3> {{temp.humidity ? (temp.humidity | number: "1.2-2") + "&#37;": "No Humidity Data"}}  </div>
       </div>
 
-  </div>
-</div>
+  </div></div>
