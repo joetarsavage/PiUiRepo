@@ -12,16 +12,26 @@ export class TwitterpanelComponent implements OnInit{
 
   times: string [];
   prices: number [];
+
+  selectedPrice: number[];
+
   stockData;
   xlabels;
   chartType = 'line';
   chartColor = [{ // grey
-    backgroundColor: 'rgba(148,159,177,0.2)',
-    borderColor: 'rgba(148,159,177,1)',
-    pointBackgroundColor: 'rgba(148,159,177,1)',
+    backgroundColor: 'rgba(75,247,69,0.2)',
+    borderColor: 'rgba(75,247,69,1)',
+    pointBackgroundColor: 'rgba(75,247,69,1)',
     pointBorderColor: '#fff',
     pointHoverBackgroundColor: '#fff',
-    pointHoverBorderColor: 'rgba(148,159,177,0.8)'}];
+    pointHoverBorderColor: 'rgba(75,247,69,0.8)'},
+    { // grey
+      backgroundColor: 'rgba(255,0,0,0.2)',
+      borderColor: 'rgba(255,0,0,1)',
+      pointBackgroundColor: 'rgba(255,0,0,1)',
+      pointBorderColor: '#fff',
+      pointHoverBackgroundColor: '#fff',
+      pointHoverBorderColor: 'rgba(255,0,0,0.8)'}];
 
 
   @Input('stockDate') dateTime: string;
@@ -32,7 +42,7 @@ export class TwitterpanelComponent implements OnInit{
 
   constructor() { }
   setChart():void{
-    this.stockData = [{data: this.prices,label: 'Price'}];
+    this.stockData = [{data: this.prices,label: 'Price'},{data: this.selectedPrice,label:"sup"}];
     console.log(this.stockData);
     this.xlabels = this.times;
 
@@ -60,7 +70,15 @@ export class TwitterpanelComponent implements OnInit{
                 arrPrices.push(stock.average);
                 lastPrice = stock.average;
               }
+              if(self.time == stock.minute){
+                if(stock.average == -1){
+                  self.selectedPrice = [lastPrice];
+                }else{
+                  self.selectedPrice = [stock.average];
+                }
+              }
             });
+
             self.times = arrTimes;
             self.prices = arrPrices;
             self.setChart();
