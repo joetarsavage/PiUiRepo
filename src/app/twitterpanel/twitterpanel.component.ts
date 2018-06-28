@@ -19,19 +19,19 @@ export class TwitterpanelComponent implements OnInit{
   xlabels;
   chartType = 'line';
   chartColor = [{ // grey
+    backgroundColor: 'rgba(255,0,0,1)',
+    borderColor: 'rgba(255,0,0,1)',
+    pointBackgroundColor: 'rgba(255,0,0,1)',
+    pointBorderColor: 'rgba(255,0,0)',
+    pointHoverBackgroundColor: 'rgba(255,0,0)',
+    pointHoverBorderColor: 'rgba(255,0,0,0.8)'},
+    { // grey
     backgroundColor: 'rgba(75,247,69,0.2)',
     borderColor: 'rgba(75,247,69,1)',
     pointBackgroundColor: 'rgba(75,247,69,1)',
     pointBorderColor: '#fff',
     pointHoverBackgroundColor: '#fff',
-    pointHoverBorderColor: 'rgba(75,247,69,0.8)'},
-    { // grey
-      backgroundColor: 'rgba(255,0,0,0.2)',
-      borderColor: 'rgba(255,0,0,1)',
-      pointBackgroundColor: 'rgba(255,0,0,1)',
-      pointBorderColor: '#fff',
-      pointHoverBackgroundColor: '#fff',
-      pointHoverBorderColor: 'rgba(255,0,0,0.8)'}];
+    pointHoverBorderColor: 'rgba(75,247,69,0.8)'}];
 
 
   @Input('stockDate') dateTime: string;
@@ -42,7 +42,7 @@ export class TwitterpanelComponent implements OnInit{
 
   constructor() { }
   setChart():void{
-    this.stockData = [{data: this.prices,label: 'Price'},{data: this.selectedPrice,label:"sup"}];
+    this.stockData = [{data: this.selectedPrice,label:"Selected Price"},{data: this.prices,label: 'All Prices'}];
     console.log(this.stockData);
     this.xlabels = this.times;
 
@@ -61,26 +61,39 @@ export class TwitterpanelComponent implements OnInit{
           success:function(data){
             var arrTimes = [];
             var arrPrices = [];
+            var arrSelectedPrice = [];
             var lastPrice = 0;
             $.each(data, function(i,stock){
+              //pushes times to label arr
               arrTimes.push(stock.minute);
-              if(stock.average == -1){
-                arrPrices.push(lastPrice);
+              //if time is equal, doesnt push data point
+              if(self.time != stock.minute){
+                if(stock.average == -1){
+                  arrPrices.push(lastPrice);
+                }else{
+                  arrPrices.push(stock.average);
+                  lastPrice = stock.average;
+                }
               }else{
-                arrPrices.push(stock.average);
-                lastPrice = stock.average;
+                arrPrices.push(null);
               }
+
+              //for second list
+              //only pushes data point for equal time
               if(self.time == stock.minute){
                 if(stock.average == -1){
-                  self.selectedPrice = [lastPrice];
+                  arrSelectedPrice.push(lastPrice);
                 }else{
-                  self.selectedPrice = [stock.average];
+                  arrSelectedPrice.push(stock.average);
                 }
+              }else{
+                arrSelectedPrice.push(null);
               }
             });
 
             self.times = arrTimes;
             self.prices = arrPrices;
+            self.selectedPrice = arrSelectedPrice;
             self.setChart();
           }
         });
