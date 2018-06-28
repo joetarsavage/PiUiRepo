@@ -32,7 +32,7 @@ export class TwitterpanelComponent implements OnInit{
 
   constructor() { }
   setChart():void{
-    this.stockData = [{data: this.prices,label: '$'}];
+    this.stockData = [{data: this.prices,label: 'Price'}];
     console.log(this.stockData);
     this.xlabels = this.times;
 
