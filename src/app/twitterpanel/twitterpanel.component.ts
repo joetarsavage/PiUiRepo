@@ -1,16 +1,28 @@
-import { Component, OnInit, Input, AfterViewInit, ViewChild } from '@angular/core';
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import {BaseChartDirective} from 'ng2-charts';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-twitterpanel',
   templateUrl: './twitterpanel.component.html',
   styleUrls: ['./twitterpanel.component.css']
 })
-export class TwitterpanelComponent implements OnInit, AfterViewInit{
+export class TwitterpanelComponent implements OnInit{
   @ViewChild(BaseChartDirective) chart: BaseChartDirective;
 
-  times: [];
-  prices: [];
+  times: string [];
+  prices: number [];
+  stockData;
+  xlabels;
+  chartType = 'line';
+  chartColor = [{ // grey
+    backgroundColor: 'rgba(148,159,177,0.2)',
+    borderColor: 'rgba(148,159,177,1)',
+    pointBackgroundColor: 'rgba(148,159,177,1)',
+    pointBorderColor: '#fff',
+    pointHoverBackgroundColor: '#fff',
+    pointHoverBorderColor: 'rgba(148,159,177,0.8)'}];
+
 
   @Input('stockDate') dateTime: string;
   date: string;
@@ -19,7 +31,12 @@ export class TwitterpanelComponent implements OnInit, AfterViewInit{
 
 
   constructor() { }
+  setChart():void{
+    this.stockData = [{data: this.prices,label: '$'}];
+    console.log(this.stockData);
+    this.xlabels = this.times;
 
+  }
   ngOnInit() {
     var self = this;
     $(document).ready(function() {
@@ -46,8 +63,10 @@ export class TwitterpanelComponent implements OnInit, AfterViewInit{
             });
             self.times = arrTimes;
             self.prices = arrPrices;
+            self.setChart();
           }
         });
+
       });
     });
   }

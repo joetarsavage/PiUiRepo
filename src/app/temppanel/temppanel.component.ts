@@ -58,6 +58,7 @@ export class TemppanelComponent implements OnInit, AfterViewInit{
     this.allDates = temp.map(dat => dat.occurredTs);
     this.xlabels = this.allDates.slice();
     this.temperatureData = [{data: this.allTempData.slice(), label: 'Temperature °F'}];
+    console.log(this.temperatureData);
     this.currentDate = new Date();
     this.numOneDayBack = this.numIterationsBack(new Date(new Date().setDate(new Date().getDate()-1)));
     this.numOneWeekBack = this.numIterationsBack(new Date(new Date().setDate(new Date().getDate()-5)));
@@ -82,7 +83,7 @@ export class TemppanelComponent implements OnInit, AfterViewInit{
   numIterationsBack(date: Date): number {
     for ( this.i = this.allDates.length - 1; new Date(this.allDates[this.i]).getDate() >= date.getDate(); this.i--){
     }
-      if (this.i <0) this.i=0; 
+      if (this.i <0) this.i=0;
       return this.i;
   }
 }
