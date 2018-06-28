@@ -66,6 +66,7 @@ export class TemppanelComponent implements OnInit, AfterViewInit {
     this.xlabels = this.allDates.slice(this.numOneDayBack);
     this.temperatureData = [{data: this.allTempData.slice(this.numOneDayBack), label: 'Temperature °F'},
       {data: this.allHumidityData.slice(this.numOneDayBack), label: 'Humidity %'}];
+    console.log(this.temperatureData);
   }
   displayAll() {
     this.chart.labels = this.allDates.slice();
