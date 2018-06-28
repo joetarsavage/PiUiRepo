@@ -10,24 +10,21 @@ html{
 .panel-heading{
   border-top-right-radius: 0px;
 }
-ul{
-  padding: 10px;
+
+.panel-body canvas{
+  align-items: left;
 }
-li{
-  font-size: 24px;
-  cursor: pointer;
-  text-align: left;
-  background-color: #EEE;
-  margin: .5em;
-  padding: .1em 0;
-  border-radius: 4px;
-  list-style-type: none;
+button{
+  background-color: #428BCA;
+  border-radius: 2px;
+  color: white;
 }
-li:hover {
-  color: #607D8B;
-  background-color: #DDD;
-  left: .1em;
-}
+
+/* canvas{
+  border:5px;
+  border-style: dashed;
+} */
+
 .badge{
   border-radius: 6px;
   font-size: 26px;

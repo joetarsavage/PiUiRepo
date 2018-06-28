@@ -7,8 +7,21 @@ body{
   padding: 10px;
   float: right;
 }
+.topnav{
+  text-align: left;
+  color: #337ab7;
+  font-size: 1em;
+  padding-left: 1.5em;
+}
+a{
+  padding: 1em;
+}
+a:hover{
+  text-decoration: underline;
+}
 h1{
-  font-size: 5em;
+  padding: 10px;
+  font-size: 3em;
   text-align: left;
   color: #337ab7;
 }
@@ -27,4 +40,8 @@ html{
   background: url(https://previews.123rf.com/images/andreysuslov/andreysuslov1708/andreysuslov170800029/84966856-smart-house-concept-vector-background-the-internet-of-things-iot-set-icon-and-symbol-artificial-inte.jpg);
   background-size: cover;
 }
-
+@media screen and (max-width: 600px){
+  h1{
+    font-size: 2em;
+  }
+}

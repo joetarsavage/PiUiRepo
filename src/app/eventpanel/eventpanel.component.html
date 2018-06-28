@@ -1,18 +1,18 @@
-<div class="apanel panel panel-primary scrollbar-light-blue">
+<div class="apanel panel panel-primary">
   <div class="panel-heading">Events</div>
     <div class="panel-body">
-      <table style="width:100%">
+      <table id="eventsTable" style="width:100%">
         <tbody>
           <tr (click)="click(motionEvent)" class="data" *ngFor="let motionEvent of motionEvents | paginate: { itemsPerPage:9, currentPage: p}">
             <td>{{motionEvent.occurredTs | date: "MMM d, y &nbsp; h:mm:ss a"}}</td>
           </tr>
         </tbody>
       </table>
-     
+      <pagination-controls class="pageControl"
+         previousLabel = "Prev"
+         nextLabel = "Next"
+         (pageChange)="p = $event"
+         maxSize = "0">
+       </pagination-controls>
     </div>
-   <pagination-controls class="pageControl"
-      previousLabel = "Previous"
-      nextLabel = "Next"
-        (pageChange)="p = $event">
-      </pagination-controls>
 </div>
