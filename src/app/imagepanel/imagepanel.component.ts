@@ -17,7 +17,7 @@ export class ImagepanelComponent implements OnInit {
   ngOnInit() {
     var self = this;
     $(document).ready(function(){
-      $('h2').bind("DOMSubtreeModified",function(){
+      $('#imageH2').bind("DOMSubtreeModified",function(){
         $("#loading").show();
         $("#pic").hide();
         $.ajax({

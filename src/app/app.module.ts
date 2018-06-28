@@ -11,6 +11,7 @@ import { PairedTempPanelComponent } from './paired-temp-panel/paired-temp-panel.
 import {ChartsModule} from 'ng2-charts';
 
 import { NgxPaginationModule } from 'ngx-pagination';
+import { TwitterpanelComponent } from './twitterpanel/twitterpanel.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
     ImagepanelComponent,
     EventpanelComponent,
     TemppanelComponent,
-    PairedTempPanelComponent
+    PairedTempPanelComponent,
+    TwitterpanelComponent
   ],
   imports: [
     BrowserModule,

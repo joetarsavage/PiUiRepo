@@ -1,0 +1,15 @@
+<div class="apanel panel panel-primary scrollbar-light-blue">
+  <div class="panel-heading">JnJ Stock</div>
+  <div class="panel-body">
+    {{stockDataString}}
+    <h2 id="stockDateH2" style="display: none;">{{dateTime}}</h2>
+    <script src="node_modules/chart.js/src/chart.js"></script>
+    <canvas baseChart width="300" height="150"
+            [datasets]="stockData"
+            [labels]="xlabels"
+            [colors]="chartColor"
+            [chartType]="chartType"
+            [options]="chartOptions"></canvas>
+
+  </div>
+</div>

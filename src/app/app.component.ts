@@ -9,11 +9,13 @@ import {TempService} from './temp.service';
 export class AppComponent {
   title = 'GradTech JnJ 2018';
   selectedEvent = -1;
+  stockDate = '';
   constructor(private tempService: TempService) {}
 
   onClicked(bool) {
     this.selectedEvent = bool.id;
     this.changeTempDate(bool.occurredTs);
+    this.stockDate = bool.occurredTs;
   }
 
   ngOnInit() {
