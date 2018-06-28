@@ -2,6 +2,9 @@ import {Component, OnInit, AfterViewInit, ViewChild} from '@angular/core';
 import {EventService} from '../event.service';
 import {TempEvent} from '../temp.event';
 import {BaseChartDirective} from 'ng2-charts';
+import {TempService} from '../temp.service';
+import * as $ from 'jquery';
+
 
 
 @Component({
@@ -33,13 +36,20 @@ export class TemppanelComponent implements OnInit, AfterViewInit {
     pointHoverBackgroundColor: '#fff',
     pointHoverBorderColor: 'rgba(148,159,177,0.8)'}];
 
+  temp: TempEvent;
+  constructor(private eventService: EventService , private tempService: TempService) { }
 
-  constructor(private eventService: EventService) { }
 
   ngOnInit() {
     // const refreshTimer = interval(10000);
     this.getAllTemps();
+    this.tempService.currentTempDate.subscribe(tempDate =>  this.getTemp(tempDate));
     // refreshTimer.subscribe(n => this.getAllTemps());
+  }
+  getTemp(date: string): void {
+    if(date!='0')
+      this.eventService.getTempByDate(date).subscribe(temp => this.temp = temp , err => console.log('Error happened in sub'));
+
   }
 
   ngAfterViewInit() {
@@ -53,9 +63,13 @@ export class TemppanelComponent implements OnInit, AfterViewInit {
     this.updateTempGraphData(temp);
   }
   updateTempGraphData(temp: TempEvent[]): void {
+    temp.forEach(tEvent =>{
+      tEvent.occurredTs = tEvent.occurredTs.slice(5).replace("-","/");
+    });
     this.allTempData = temp.map(dat =>  dat.temp );
     this.allHumidityData = temp.map(dat => dat.humidity);
     this.allDates = temp.map(dat => dat.occurredTs);
+
     this.currentDate = new Date();
     this.numOneDayBack = this.numIterationsBack(new Date(new Date().setDate(new Date().getDate() - 1)));
     this.numOneWeekBack = this.numIterationsBack(new Date(new Date().setDate(new Date().getDate() - 5)));
@@ -91,11 +105,9 @@ export class TemppanelComponent implements OnInit, AfterViewInit {
     for ( this.i = this.allDates.length - 1; this.i > 0 && new Date(this.allDates[this.i]).getDate() >= date.getDate(); this.i--) {
       console.log('temp date is: ' + new Date(this.allDates[this.i]).getDate() + 'Previous Date: ' + date.getDate());
     }
-
-
     if (this.i < 0) {
         this.i = 0 ;
-      }
-      return this.i;
+    }
+    return this.i;
   }
 }
