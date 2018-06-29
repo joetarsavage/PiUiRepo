@@ -67,16 +67,16 @@ export class TwitterpanelComponent implements OnInit{
               //pushes times to label arr
               arrTimes.push(stock.minute);
               //if time is equal, doesnt push data point
-              if(self.time != stock.minute){
+              //if(self.time != stock.minute){
                 if(stock.average == -1){
                   arrPrices.push(lastPrice);
                 }else{
                   arrPrices.push(stock.average);
                   lastPrice = stock.average;
                 }
-              }else{
+              /*}else{
                 arrPrices.push(null);
-              }
+              }*/
 
               //for second list
               //only pushes data point for equal time
