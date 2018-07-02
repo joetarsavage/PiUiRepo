@@ -61,7 +61,9 @@ export class TemppanelComponent implements OnInit, AfterViewInit {
   }
   tempDataUpdated(temp: TempEvent[]): void {
     this.temps = temp;
-    this.updateTempGraphData(temp);
+    this.temps.sort(this.date_sort_asc);
+
+    this.updateTempGraphData(this.temps);
   }
   updateTempGraphData(temp: TempEvent[]): void {
    /* temp.forEach(tEvent =>{
@@ -118,4 +120,11 @@ export class TemppanelComponent implements OnInit, AfterViewInit {
     }
     return this.i;
   }
+
+    date_sort_asc = function (te1, te2): any {
+
+    if (te1.occurredTs > te2.occurredTs) {return 1; }
+    if (te1.occurredTs < te2.occurredTs) {return -1; }
+    return 0;
+  };
 }
