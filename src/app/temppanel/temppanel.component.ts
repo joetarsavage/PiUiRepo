@@ -61,12 +61,14 @@ export class TemppanelComponent implements OnInit, AfterViewInit {
   }
   tempDataUpdated(temp: TempEvent[]): void {
     this.temps = temp;
-    this.updateTempGraphData(temp);
+    this.temps.sort(this.date_sort_asc);
+
+    this.updateTempGraphData(this.temps);
   }
   updateTempGraphData(temp: TempEvent[]): void {
-    temp.forEach(tEvent =>{
+   /* temp.forEach(tEvent =>{
       tEvent.occurredTs = tEvent.occurredTs.slice(5).replace("-","/");
-    });
+    });*/
     this.allTempData = temp.map(dat =>  dat.temp );
     this.allHumidityData = temp.map(dat => dat.humidity);
     this.allDates = temp.map(dat => dat.occurredTs);
@@ -100,11 +102,29 @@ export class TemppanelComponent implements OnInit, AfterViewInit {
     this.chart.ngOnChanges({});
   }
   numIterationsBack(date: Date): number {
-    for ( this.i = this.allDates.length - 1; this.i > 0 && new Date(this.allDates[this.i]).getDate() >= date.getDate(); this.i--) {
+    if ( new Date(this.allDates[this.allDates.length - 1]).getMonth() === date.getMonth()) {
+      for (this.i = this.allDates.length - 1; this.i > 0 && new Date(this.allDates[this.i]).getDate() >= date.getDate() &&
+      new Date(this.allDates[this.i]).getMonth() === date.getMonth(); this.i--) {
+      }
+      this.i += 1;
+    } else if ( new Date(this.allDates[this.allDates.length - 1]).getMonth() > date.getMonth()) {
+      for (this.i = this.allDates.length - 1; this.i > 0 && new Date(this.allDates[this.i]).getMonth() > date.getMonth(); this.i--) {
+      }
+      for ( this.i;  new Date(this.allDates[this.i]).getDate() >= date.getDate(); this.i--) {
+      }
+      this.i += 1;
     }
+
     if (this.i < 0) {
         this.i = 0 ;
     }
     return this.i;
   }
+
+    date_sort_asc = function (te1, te2): any {
+
+    if (te1.occurredTs > te2.occurredTs) {return 1; }
+    if (te1.occurredTs < te2.occurredTs) {return -1; }
+    return 0;
+  };
 }
