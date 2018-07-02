@@ -17,6 +17,9 @@ export class EventpanelComponent implements OnInit {
 
   motionEvents: MotionEvent[];
 
+  currentTopEvent: MotionEvent;
+  lastTopEvent: MotionEvent;
+
   @Output() clicked = new EventEmitter<boolean>();
 
   constructor(private eventService: EventService) {}
@@ -25,6 +28,7 @@ export class EventpanelComponent implements OnInit {
     this.clicked.emit(bool);
   }
   onRefreshed() {
+    this.ringBell();
     $(document).ready(function() {
       const tdSelected = localStorage.getItem('tdSelected');
 
@@ -62,6 +66,22 @@ export class EventpanelComponent implements OnInit {
       () => this.onRefreshed());
   }
 
+  ringBell():void{
+    if(this.lastTopEvent == null){
+      this.lastTopEvent = this.motionEvents[0];
+      this.currentTopEvent = this.motionEvents[0];
+    }else{
+      this.currentTopEvent = this.motionEvents[0];
+    }
+    if(this.lastTopEvent.id == this.currentTopEvent.id){
+      console.log("no new event");
+    }else{
+      console.log("EVENT!");
+      this.lastTopEvent = this.currentTopEvent;
+    }
 
+
+
+  }
 
 }
