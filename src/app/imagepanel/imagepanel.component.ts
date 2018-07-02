@@ -21,8 +21,7 @@ export class ImagepanelComponent implements OnInit {
         $("#loading").show();
         $("#pic").hide();
         $.ajax({
-          url: 'http://54.210.23.150:8080/demo/getImageById/' + self.id,
-          //url: 'http://localhost:8080/demo/getImageById/' + self.id,
+          url: 'http://54.210.23.150:8080/events/getImageById/' + self.id,
           success:function(data){
             $("#loading").hide();
             $('#pic').show().attr("src","data:image/jpeg;base64," + data);
