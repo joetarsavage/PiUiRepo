@@ -26,6 +26,7 @@ export class EventpanelComponent implements OnInit {
 
   click(bool: boolean) {
     this.clicked.emit(bool);
+    $('#alert').hide();
   }
   onRefreshed() {
     this.ringBell();
@@ -49,6 +50,7 @@ export class EventpanelComponent implements OnInit {
     this.getEvents();
     refreshTimer.subscribe(n => this.getEvents());
 
+    $('#alert').hide();
     $(document).ready(function() {
       localStorage.removeItem('tdSelected');
       $(document).on('click', '.data', function() {
@@ -65,22 +67,20 @@ export class EventpanelComponent implements OnInit {
       err => this.onRefreshed(),
       () => this.onRefreshed());
   }
-
-  ringBell():void{
-    if(this.lastTopEvent == null){
+  ringBell(): void {
+    if (this.lastTopEvent == null) {
       this.lastTopEvent = this.motionEvents[0];
       this.currentTopEvent = this.motionEvents[0];
-    }else{
+    } else {
       this.currentTopEvent = this.motionEvents[0];
     }
-    if(this.lastTopEvent.id == this.currentTopEvent.id){
-      console.log("no new event");
-    }else{
-      console.log("EVENT!");
+    if (this.lastTopEvent.id == this.currentTopEvent.id) {
+    } else {
+      $('#alert').show();
+      var audio = new Audio("https://www.soundjay.com/door/sounds/doorbell-7.mp3")
+      audio.play();
       this.lastTopEvent = this.currentTopEvent;
     }
-
-
 
   }
 

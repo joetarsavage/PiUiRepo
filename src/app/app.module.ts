@@ -21,7 +21,8 @@ import { TwitterpanelComponent } from './twitterpanel/twitterpanel.component';
     EventpanelComponent,
     TemppanelComponent,
     PairedTempPanelComponent,
-    TwitterpanelComponent
+    TwitterpanelComponent,
+
   ],
   imports: [
     BrowserModule,
