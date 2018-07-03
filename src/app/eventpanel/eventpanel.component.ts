@@ -16,6 +16,7 @@ import * as $ from 'jquery';
 export class EventpanelComponent implements OnInit {
 
   motionEvents: MotionEvent[];
+  p: string;
 
   @Output() clicked = new EventEmitter<boolean>();
 

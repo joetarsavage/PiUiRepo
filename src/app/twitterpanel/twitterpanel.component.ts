@@ -15,6 +15,7 @@ export class TwitterpanelComponent implements OnInit{
 
   selectedPrice: number[];
 
+  chartOptions;
   stockData;
   xlabels;
   chartType = 'line';
