@@ -22,6 +22,7 @@ export class EventpanelComponent implements OnInit {
   lastTopEvent: MotionEvent;
 
   toolTipText: string;
+  panelHeadingTitle: string;
 
   @Output() clicked = new EventEmitter<MotionEvent>();
 
@@ -30,8 +31,10 @@ export class EventpanelComponent implements OnInit {
   hasFaceChanged(){
     if(this.toolTipText == "See all events"){
       this.toolTipText = "See only events with people";
+      this.panelHeadingTitle = "All Events";
     }else{
       this.toolTipText = "See all events";
+      this.panelHeadingTitle = "Events with People";
     }
   }
   click(bool: MotionEvent) {
@@ -59,6 +62,7 @@ export class EventpanelComponent implements OnInit {
   // set global variable and reset css on refresh based on id
   ngOnInit() {
     this.toolTipText = "See all events";
+    this.panelHeadingTitle = "Events with People";
     const self = this;
 
     const refreshTimer = interval(2000);
