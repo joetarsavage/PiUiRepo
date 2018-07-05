@@ -14,3 +14,11 @@
     width: 90%;
   }
 }
+@media only screen and (max-width: 600px) and (-webkit-device-pixel-ratio : 3){
+  .apanel{
+    margin: 5%;
+    display: block;
+    height: 350px;
+    width: 90%;
+  }
+}
