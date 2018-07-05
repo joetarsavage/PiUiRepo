@@ -19,7 +19,7 @@
             </div>
 
 	<div (click)="alertClick()" class = "alert" id = 'alert'>
-    <div id="moEventTs" style="display: none;" *ngIf="motionEvent">{{motionEvent.occurredTs | amParse: "YYYY-MM-DD hh:mm:ss" | amDateFormat: "MMM d, Y &nbsp; h:mm:ss a"}}</div>
+    <div id="moEventTs" style="display: none;" *ngIf="motionEvent">{{motionEvent.occurredTs | amParse: "YYYY-MM-DD hh:mm:ss" | amDateFormat: "MMM D, Y &nbsp; h:mm:ss A"}}</div>
   	<span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
   	<strong>Someone is at the Door!</strong> Click to see who's there!
 	</div>

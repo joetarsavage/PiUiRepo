@@ -28,6 +28,7 @@ export class AppComponent {
       localStorage.removeItem('tdSelected');
       localStorage.setItem('tdSelected', $('#moEventTs').text());
     });
+    console.log($('#moEventTs').text());
     this.epComponent.p = "1";
     this.epComponent.click(this.epComponent.currentTopEvent);
   }
