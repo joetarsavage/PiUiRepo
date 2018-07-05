@@ -39,6 +39,7 @@ export class EventpanelComponent implements OnInit {
         $('td').each(function() {
           if ($(this).text() === tdSelected) {
             $(this).addClass('selected');
+            
           }
         });
       }
