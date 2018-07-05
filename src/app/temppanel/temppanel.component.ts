@@ -66,9 +66,10 @@ export class TemppanelComponent implements OnInit, AfterViewInit {
     this.updateTempGraphData(this.temps);
   }
   updateTempGraphData(temp: TempEvent[]): void {
-   /* temp.forEach(tEvent =>{
-      tEvent.occurredTs = tEvent.occurredTs.slice(5).replace("-","/");
-    });*/
+    temp.forEach(tEvent =>{
+      tEvent.occurredTs = tEvent.occurredTs.slice(5,16).replace("-","/");
+      tEvent.occurredTs = tEvent.occurredTs
+    });
     this.allTempData = temp.map(dat =>  dat.temp );
     this.allHumidityData = temp.map(dat => dat.humidity);
     this.allDates = temp.map(dat => dat.occurredTs);
