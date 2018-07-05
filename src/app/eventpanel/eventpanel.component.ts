@@ -21,11 +21,11 @@ export class EventpanelComponent implements OnInit {
   currentTopEvent: MotionEvent;
   lastTopEvent: MotionEvent;
 
-  @Output() clicked = new EventEmitter<boolean>();
+  @Output() clicked = new EventEmitter<MotionEvent>();
 
   constructor(private eventService: EventService) {}
 
-  click(bool: boolean) {
+  click(bool: MotionEvent) {
     this.clicked.emit(bool);
     $('#alert').hide();
   }

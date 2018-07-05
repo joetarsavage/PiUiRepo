@@ -18,9 +18,9 @@
                 <a href="#about">About</a>
             </div>
 
-	<div class = "alert" id = 'alert'>
-	<span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
-	<strong>Someone is at the Door!</strong>See who's there
+	<div (click)="alertClick()" class = "alert" id = 'alert'>
+  	<span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+  	<strong>Someone is at the Door!</strong> Click to see who's there!
 	</div>
 
     <app-eventpanel (clicked) = "onClicked($event)"></app-eventpanel>
