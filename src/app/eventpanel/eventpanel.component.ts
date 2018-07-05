@@ -26,6 +26,7 @@ export class EventpanelComponent implements OnInit {
   constructor(private eventService: EventService) {}
 
   click(bool: MotionEvent) {
+    this.onRefreshed()
     this.clicked.emit(bool);
     $('#alert').hide();
   }
@@ -39,7 +40,7 @@ export class EventpanelComponent implements OnInit {
         $('td').each(function() {
           if ($(this).text() === tdSelected) {
             $(this).addClass('selected');
-            
+
           }
         });
       }
