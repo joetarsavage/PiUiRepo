@@ -12,7 +12,7 @@ import {ChartsModule} from 'ng2-charts';
 
 import { NgxPaginationModule } from 'ngx-pagination';
 import { TwitterpanelComponent } from './twitterpanel/twitterpanel.component';
-
+import {MomentModule} from 'angular2-moment';
 
 @NgModule({
   declarations: [
@@ -22,13 +22,13 @@ import { TwitterpanelComponent } from './twitterpanel/twitterpanel.component';
     TemppanelComponent,
     PairedTempPanelComponent,
     TwitterpanelComponent,
-
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     ChartsModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    MomentModule
   ],
   providers: [EventService],
   bootstrap: [AppComponent]

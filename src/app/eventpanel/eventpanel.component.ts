@@ -30,6 +30,7 @@ export class EventpanelComponent implements OnInit {
     $('#alert').hide();
   }
   onRefreshed() {
+
     this.ringBell();
     $(document).ready(function() {
       const tdSelected = localStorage.getItem('tdSelected');
@@ -75,6 +76,7 @@ export class EventpanelComponent implements OnInit {
     } else {
       this.currentTopEvent = this.motionEvents[0];
     }
+    console.log(this.currentTopEvent.occurredTs);
     if (this.lastTopEvent.id == this.currentTopEvent.id) {
     } else {
       $('#alert').show();

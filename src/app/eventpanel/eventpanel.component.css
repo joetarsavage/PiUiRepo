@@ -32,15 +32,22 @@ td:hover {
   background-color: #DDD;
   left: .1em;
 }
-.badge{ 
+.badge{
   border-radius: 6px;
   font-size: 26px;
   padding-top: 1%;
   padding-bottom: 1%;
   margin-right: 1%;
 }
-
 @media screen and (max-width: 600px){
+  td{
+   font-size: 20px;
+  }
+  .badge{
+   font-size: 22px;
+  }
+}
+@media only screen and (max-width: 600px) and (-webkit-device-pixel-ratio : 3){
   td{
    font-size: 20px;
   }

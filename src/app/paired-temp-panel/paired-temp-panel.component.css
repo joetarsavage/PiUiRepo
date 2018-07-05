@@ -22,3 +22,11 @@
     font-size: 2.5em;
   }
 }
+@media only screen and (max-width: 600px) and (-webkit-device-pixel-ratio : 3){
+  .temp{
+    font-size: 2.5em;
+  }
+  .humidity{
+    font-size: 2.5em;
+  }
+}
