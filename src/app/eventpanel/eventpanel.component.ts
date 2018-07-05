@@ -21,10 +21,19 @@ export class EventpanelComponent implements OnInit {
   currentTopEvent: MotionEvent;
   lastTopEvent: MotionEvent;
 
+  toolTipText: string;
+
   @Output() clicked = new EventEmitter<MotionEvent>();
 
   constructor(private eventService: EventService) {}
 
+  hasFaceChanged(){
+    if(this.toolTipText == "See all events"){
+      this.toolTipText = "See only events with people";
+    }else{
+      this.toolTipText = "See all events";
+    }
+  }
   click(bool: MotionEvent) {
     this.onRefreshed()
     this.clicked.emit(bool);
@@ -34,6 +43,7 @@ export class EventpanelComponent implements OnInit {
 
     this.ringBell();
     $(document).ready(function() {
+      $('[data-toggle="tooltip"]').tooltip();
       const tdSelected = localStorage.getItem('tdSelected');
 
       if (tdSelected != null) {
@@ -48,6 +58,7 @@ export class EventpanelComponent implements OnInit {
   }
   // set global variable and reset css on refresh based on id
   ngOnInit() {
+    this.toolTipText = "See all events";
     const self = this;
 
     const refreshTimer = interval(2000);
