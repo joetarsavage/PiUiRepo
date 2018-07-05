@@ -5,7 +5,7 @@
         <tbody>
           <tr (click)="click(motionEvent)" class="data" *ngFor="let motionEvent of motionEvents | paginate: { itemsPerPage:9, currentPage: p}">
             <!--<td>{{motionEvent.occurredTs | date: "MMM d, y | h:mm:ss a"}}</td>-->
-            <td>{{motionEvent.occurredTs | amParse: "YYYY-MM-DD hh:mm:ss" | amDateFormat: "MMM d, Y &nbsp; h:mm:ss a"}}</td>
+            <td>{{motionEvent.occurredTs | amParse: "YYYY-MM-DD hh:mm:ss" | amDateFormat: "MMM D, Y &nbsp; h:mm:ss A"}}</td>
           </tr>
         </tbody>
       </table>
