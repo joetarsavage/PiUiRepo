@@ -46,7 +46,6 @@ export class EventpanelComponent implements OnInit {
 
     this.ringBell();
     $(document).ready(function() {
-      $('[data-toggle="tooltip"]').tooltip();
       const tdSelected = localStorage.getItem('tdSelected');
 
       if (tdSelected != null) {
